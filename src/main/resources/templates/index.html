@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>PDF Store App</title>
+    <link rel="stylesheet" th:href="@{../css/homePage.css}"/>
+</head>
+<body>
+
+
+<div class="mainDiv">
+    <h1>Currently stored pdfs</h1>
+    <table class="table">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>description</th>
+            <th>size</th>
+            <th>upload date</th>
+        </tr>
+        <tr th:each="pdf : ${pdfs}">
+            <td th:text="${pdf.id}">id</td>
+            <td th:text="${pdf.name}">task</td>
+            <td th:text="${pdf.description}">director</td>
+            <td th:text="${pdf.size}">description</td>
+            <td th:text="${pdf.uploadDate}">year</td>
+        </tr>
+
+    </table>
+
+    Add new Pdf<br/>
+
+    <form>
+        <input type="text" placeholder="Input name">
+        <input type="text" placeholder="Input description">
+        <input type="file" placeholder="Input file">
+        <input type="submit">
+    </form>
+
+
+</div>
+
+</body>
+</html>

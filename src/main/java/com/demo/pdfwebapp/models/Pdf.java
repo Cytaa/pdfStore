@@ -4,7 +4,7 @@ import lombok.Data;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 @Table(name = "pdf")
@@ -13,7 +13,7 @@ public class Pdf {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long directorId;
+    private Long id;
 
     private String name;
 
