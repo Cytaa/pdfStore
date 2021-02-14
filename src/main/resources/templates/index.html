@@ -23,17 +23,17 @@
             <td th:text="${pdf.name}">task</td>
             <td th:text="${pdf.description}">director</td>
             <td th:text="${pdf.size}">description</td>
-            <td th:text="${pdf.uploadDate}">year</td>
+            <td th:text="${pdf.uploadDate}">upload Date</td>
         </tr>
 
     </table>
 
     Add new Pdf<br/>
 
-    <form>
-        <input type="text" placeholder="Input name">
-        <input type="text" placeholder="Input description">
-        <input type="file" placeholder="Input file">
+    <form class="form" th:action="@{/addPdf}" method="post">
+        <input type="text" placeholder="Input name" name="name" required>
+        <input type="text" placeholder="Input description" name="description" required>
+        <input type="file" placeholder="Input file"  name="file" required>
         <input type="submit">
     </form>
 

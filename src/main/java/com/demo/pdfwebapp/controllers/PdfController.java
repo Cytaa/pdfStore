@@ -1,34 +1,32 @@
 package com.demo.pdfwebapp.controllers;
 
+import com.demo.pdfwebapp.models.Pdf;
 import com.demo.pdfwebapp.repositories.PdfRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.stereotype.Service;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
-
-@RestController
-@RequestMapping("/pdfs")
+@Service
 public class PdfController {
     private final PdfRepo pdfRepo;
 
-    public PdfController(PdfRepo pdfRepo) {
+    public PdfController(PdfRepo pdfRepo){
+
         this.pdfRepo = pdfRepo;
     }
 
-    @GetMapping("/pdfs")
-    public String getAllPdfs (Model model){
-        Iterable pdfs = pdfRepo.findAll();
-        model.addAttribute("pdfs", pdfs);
+    public void addPdf(Pdf pdf){
 
-        return "AllMovies";
+        pdfRepo.save(pdf);
     }
 
-    @GetMapping
-    public ResponseEntity listPdfs(){
-        return new ResponseEntity(pdfRepo.findAll(), HttpStatus.ACCEPTED);
+    public void deletePdf(long id){
+        pdfRepo.deleteById(id);
+    }
+
+    public List<Pdf> getAllPdfs(){
+        return pdfRepo.findAll();
     }
 }

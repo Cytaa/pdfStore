@@ -55,10 +55,7 @@ button {
     4px 4px 12px rgba(0,0,0,0.05);
 }
 
-form {
-    display: inline-block;
-    top: 50px;
-}
+
 
 a:link, a:visited  {
     text-decoration: none;

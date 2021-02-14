@@ -1,10 +1,10 @@
 package com.demo.pdfwebapp.models;
 
 import lombok.Data;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Calendar;
 
 @Entity
 @Table(name = "pdf")
@@ -30,6 +30,18 @@ public class Pdf {
 
     }
 
+    public Pdf(String name, String description, Date uploadDate, String size, byte[] file) {
+        this.name = name;
+        this.description = description;
+        this.uploadDate = uploadDate;
+        this.size = size;
+        this.file = file;
+    }
 
+    public void setTodaysData(){
+        java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+        this.setUploadDate(date);
+
+    }
 
 }
