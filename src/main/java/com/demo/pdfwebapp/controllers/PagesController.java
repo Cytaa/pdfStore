@@ -44,7 +44,7 @@ public class PagesController {
 
     @PostMapping("/deletePdf")
     public RedirectView deletePdf(Pdf pdf) {
-        pdfController.deletePdf(1);
+        pdfController.deletePdf(pdf.getId());
         return new RedirectView("/home");
     }
 

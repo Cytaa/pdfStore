@@ -43,7 +43,8 @@ button {
     background-color: #00FF7F;
     border: none;
     color: white;
-    padding: 20px;
+    padding: 0px;
+    height: 2rem;
     width: 100px;
     white-space: nowrap;
     text-align: center;
