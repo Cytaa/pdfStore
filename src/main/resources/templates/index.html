@@ -24,19 +24,22 @@
             <td th:text="${pdf.description}">director</td>
             <td th:text="${pdf.size}">description</td>
             <td th:text="${pdf.uploadDate}">upload Date</td>
-            <td><form th:action="@{/deletePdf}" >
-                <input type="button" value="Delete" placeholder="Delete">
-            </form></td>
+            <td>
+                <form th:action="@{/deletePdf}" th:method="post">
+                    <input type="hidden" name="id" th:value="${pdf.id}">
+                    <button type="submit">DELETE</button>
+                </form>
+            </td>
         </tr>
 
     </table>
 
     <h1>Add new Pdf</h1>
 
-    <form class="form" method="post" th:action="@{/addPdf}">
+    <form class="form" method="post" th:action="@{/addPdf}" th:method="post">
         <input name="name" placeholder="Input name" required type="text">
         <input name="description" placeholder="Input description" required type="text">
-        <input id="file" name="file" placeholder="Input file" required type="file" onchange="checkType(this)">
+        <input id="file" name="file" onchange="checkType(this)" placeholder="Input file" required type="file">
         <input id="submit" type="submit">
     </form>
 
@@ -46,17 +49,13 @@
 </body>
 
 <script type="text/javascript">
-    function checkType()
-    {
+    function checkType() {
         var fileName = document.getElementById('file').value;
 
         var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
-        if(ext === "pdf" )
-        {
+        if (ext === "pdf") {
             document.getElementById('submit').disabled = false;
-        }
-        else
-        {
+        } else {
             alert("Upload pdf files only");
             document.getElementById('submit').disabled = true;
         }

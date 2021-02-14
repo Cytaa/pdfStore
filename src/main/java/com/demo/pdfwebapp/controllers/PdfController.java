@@ -2,11 +2,12 @@ package com.demo.pdfwebapp.controllers;
 
 import com.demo.pdfwebapp.models.Pdf;
 import com.demo.pdfwebapp.repositories.PdfRepo;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+@Controller
 public class PdfController {
     private final PdfRepo pdfRepo;
 
@@ -53,6 +54,7 @@ public class PdfController {
 
     public void deletePdf(long id) {
         pdfRepo.deleteById(id);
+
     }
 
     public List<Pdf> getAllPdfs() {

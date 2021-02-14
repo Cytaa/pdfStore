@@ -1,13 +1,13 @@
 package com.demo.pdfwebapp.controllers;
 
-import com.demo.pdfwebapp.Services.StorageService;
 import com.demo.pdfwebapp.models.Pdf;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
@@ -27,7 +27,7 @@ public class PagesController {
     }
 
     @GetMapping("/nameError")
-    public String showNameErrorPage(Model model){
+    public String showNameErrorPage(Model model) {
         return "nameIsUsed";
     }
 
@@ -37,13 +37,13 @@ public class PagesController {
         pdf.setTodaysData();
         pdf.setSize(String.valueOf(pdf.getFile().length));
 
-        if(pdfController.addPdf(pdf) == true) return new RedirectView("/home") ;
+        if (pdfController.addPdf(pdf) == true) return new RedirectView("/home");
 
-        return new RedirectView("/nameError") ;
+        return new RedirectView("/nameError");
     }
 
-    @DeleteMapping("/deletePdf")
-    public RedirectView deletePdf(Pdf pdf){
+    @PostMapping("/deletePdf")
+    public RedirectView deletePdf(Pdf pdf) {
         pdfController.deletePdf(1);
         return new RedirectView("/home");
     }
