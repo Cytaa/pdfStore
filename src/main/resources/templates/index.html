@@ -9,7 +9,7 @@
 
 
 <div class="mainDiv">
-    <h1>Currently stored pdfs</h1>
+    <h1>Currently stored PDFs</h1>
     <table class="table">
         <tr>
             <th>id</th>
@@ -24,21 +24,42 @@
             <td th:text="${pdf.description}">director</td>
             <td th:text="${pdf.size}">description</td>
             <td th:text="${pdf.uploadDate}">upload Date</td>
+            <td><form th:action="@{/deletePdf}" >
+                <input type="button" value="Delete" placeholder="Delete">
+            </form></td>
         </tr>
 
     </table>
 
-    Add new Pdf<br/>
+    <h1>Add new Pdf</h1>
 
-    <form class="form" th:action="@{/addPdf}" method="post">
-        <input type="text" placeholder="Input name" name="name" required>
-        <input type="text" placeholder="Input description" name="description" required>
-        <input type="file" placeholder="Input file"  name="file" required>
-        <input type="submit">
+    <form class="form" method="post" th:action="@{/addPdf}">
+        <input name="name" placeholder="Input name" required type="text">
+        <input name="description" placeholder="Input description" required type="text">
+        <input id="file" name="file" placeholder="Input file" required type="file" onchange="checkType(this)">
+        <input id="submit" type="submit">
     </form>
 
 
 </div>
 
 </body>
+
+<script type="text/javascript">
+    function checkType()
+    {
+        var fileName = document.getElementById('file').value;
+
+        var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
+        if(ext === "pdf" )
+        {
+            document.getElementById('submit').disabled = false;
+        }
+        else
+        {
+            alert("Upload pdf files only");
+            document.getElementById('submit').disabled = true;
+        }
+    }
+</script>
 </html>

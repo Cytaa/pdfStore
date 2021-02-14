@@ -23,10 +23,9 @@ public class Pdf {
 
     private String size;
 
-    @Basic
     private byte[] file;
 
-    public Pdf(){
+    public Pdf() {
 
     }
 
@@ -38,7 +37,7 @@ public class Pdf {
         this.file = file;
     }
 
-    public void setTodaysData(){
+    public void setTodaysData() {
         java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
         this.setUploadDate(date);
 
