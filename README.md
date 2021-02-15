@@ -13,12 +13,12 @@ Just copy and run commands from below
 git clone https://github.com/Cytaa/pdfStore.git
 ```
 
-After downloading it you will have to change application.properties
+After downloading it you will have to change ```application.properties```
 to match your postgreSQL. Here's how to do it.
-'''
+```
 server.port = yourPostgresServerPort
 spring.datasource.url = yourDataBaseURL
 spring.datasource.username = yourPostgresUsername
 spring.datasource.password = yourPostgresPassword
-'''
+```
 
