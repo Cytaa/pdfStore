@@ -16,9 +16,9 @@ git clone https://github.com/Cytaa/pdfStore.git
 After downloading it you will have to change ```application.properties```
 to match your postgreSQL. Here's how to do it.
 ```
-server.port = yourPostgresServerPort
+server.port = portToSetUpFrontEndOn
 spring.datasource.url = yourDataBaseURL
 spring.datasource.username = yourPostgresUsername
 spring.datasource.password = yourPostgresPassword
 ```
-When app is up and running visit ```http://localhost:9999/home```
+When app is up and running visit ```http://localhost:portToSetUpFrontEndOn/home```
