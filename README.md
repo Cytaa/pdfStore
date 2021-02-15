@@ -21,4 +21,4 @@ spring.datasource.url = yourDataBaseURL
 spring.datasource.username = yourPostgresUsername
 spring.datasource.password = yourPostgresPassword
 ```
-
+When you set it up and app i running visit ```http://localhost:9999/home```
