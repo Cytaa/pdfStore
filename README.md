@@ -21,4 +21,13 @@ spring.datasource.url = yourDataBaseURL
 spring.datasource.username = yourPostgresUsername
 spring.datasource.password = yourPostgresPassword
 ```
+### How to run it?
+
+To run use following commands in projects folder
+
+```
+mvn package
+mvn spring-boot:run
+```
+
 When app is up and running visit ```http://localhost:portToSetUpFrontEndOn/home```
